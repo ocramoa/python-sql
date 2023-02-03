@@ -8,6 +8,14 @@ When run (via main), the server will run forever until it is manually stopped vi
 
 This is an experimental project designed to teach myself how to interface with MySQL with Python 3.11.
 
+# Requirements
+
+To run the server, you'll need Python 3 and the mysql.connector module. You'll also need the MySQL service, with databases you can either download or create on your own. While testing this project, I used an example database called employee_db I created with some help from the Internet, along with the sakila database. There is no functionality yet in the client or server for creating a database.
+
+To run the client, all you'll need is Python 3 with the tkinter and socket modules installed.
+
+I have only tested this project over LAN, so you might run into problems if you connect from a different network.
+
 # Network Communication
 
 I used client-server architecture. The server receives requests from clients, services them, and sends back data. However, this simple server can only service one request at a time. Multithreading will be added soon.
@@ -20,7 +28,7 @@ Both the client and server communicate with byte-like messages. They convert a s
 
 I developed this program with Visual Studio Code and the command line on a Windows PC and a Chromebook running Linux.
 
-For the code itself, I used Python 3.11 and the socket, socketserver and datetime libraries. I also used the mysql connector and the tkinter library.
+For the code itself, I used Python 3.11 and the socket, socketserver and datetime libraries. I also used mysql.connector and the tkinter library.
 
 # Useful Websites
 

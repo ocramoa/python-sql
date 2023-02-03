@@ -1,6 +1,6 @@
 class Maintainer:
 
-    """An interface meant to be inherited. Override the methods with child classes."""
+    """The maintainer performs updates on and reads from a database. Override the methods with child classes."""
 
     def create(self):
         pass
