@@ -77,7 +77,7 @@ class Conductor(socketserver.BaseRequestHandler):
                 # Insert takes an additional parameter -- values. Values should be sent as a raw list of tuples.
                 elif user_args[0] == "5":
                     inserter = Insert()
-                    inserter.insert(user_args[1],user_args[2],user_args[3],user_args[4])
+                    inserter.insert(user_args[1],user_args[2],user_args[3])
                     if inserter._is_err == False:
                         response = "Data inserted into table."
                     else:

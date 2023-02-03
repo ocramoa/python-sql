@@ -14,13 +14,13 @@ I used client-server architecture. The server receives requests from clients, se
 
 This is a TCP server as UDP is not necessary for something this small and slow. I used port 5007, but any other random unused port will do.
 
-Both the client and server communicate with byte-like messages. They convert a string message to byte-like before sending data and do the reverse after receiving data. The client should always use this format -- "number|password|database|input|optional values for insert". You will easily break the program if you type something different.
+Both the client and server communicate with byte-like messages. They convert a string message to byte-like before sending data and do the reverse after receiving data. The client should always use this format -- "number|password|database" followed by your query in the text window that appears. You will easily break the program if you type something different.
 
 # Development Environment
 
 I developed this program with Visual Studio Code and the command line on a Windows PC and a Chromebook running Linux.
 
-For the code itself, I used Python 3.11 and the socket, socketserver and datetime libraries. I also used the mysql connector and the literal_eval method from the ast library.
+For the code itself, I used Python 3.11 and the socket, socketserver and datetime libraries. I also used the mysql connector and the tkinter library.
 
 # Useful Websites
 
@@ -32,6 +32,10 @@ For the code itself, I used Python 3.11 and the socket, socketserver and datetim
 # Future Work
 
 * The server should use multithreading to service up to 10 clients at once. Of course, this gets complicated fast. I need to learn more about locks in MySQL to do this.
-* A GUI could make this more accessible and interesting, specifically for the client. They should be able to freely enter their queries like they would in any text editor.
 * Again, I actually could not figure out how to get the server to sendall multiple times when variables in f-strings were involved. Although I like the way it looks now, if I wanted to spend more time on this I'd dig deeper and find out why.
 * Again, it would be nice if the client could do more with the server. Perhaps the server could generate and store a unique username for the client to use in operations.
+
+# Known Issues
+
+* Inserting too many values at once into a table can break the program.
+* I haven't tested a lot. It could break during normal ops.

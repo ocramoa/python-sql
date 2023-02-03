@@ -1,5 +1,4 @@
 import mysql.connector
-import ast
 from server_script.operations.maintainer import Maintainer
 
 class Insert(Maintainer):
@@ -14,7 +13,7 @@ class Insert(Maintainer):
         self._is_err = False
         self.msg = ""
 
-    def insert(self, password, database, input, data):
+    def insert(self, password, database, input):
         # Establish a connection using the client-provided data and password. Note that this does use the root user.
         db = mysql.connector.connect(
             host="localhost",
@@ -42,11 +41,10 @@ class Insert(Maintainer):
         #         ("Govind", "Marketing", "40000")]
 
         tbl_insert = f"""{input}"""
-        data_to_list = ast.literal_eval(data)
         
         # execute the insert commands for all rows and commit to the database
         try:
-            c.executemany(tbl_insert, data_to_list)
+            c.execute(tbl_insert)
             db.commit()
         except mysql.connector.Error as err:
             db.close()
@@ -58,7 +56,8 @@ class Insert(Maintainer):
         db.close()
 
         with open(r"C:\Users\eyeba\python_code\python-sql\server_script\data\history.txt", "a") as h:
-            h.write(f"{tbl_insert}, {data_to_list}\n")
+            # h.write(f"{tbl_insert}, {data_to_list}\n")
+            h.write(f"{tbl_insert}\n")
 
         self.msg = "Insert command successful."
         return self.msg
