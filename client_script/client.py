@@ -1,7 +1,7 @@
 import socket
 from services.gui import RootWindow
 
-HOST, PORT = "192.168.0.245", 5007 # your host machine and port here
+HOST, PORT = "192.168.1.12", 5007 # your host machine and port here
 
 initial_input = input("CRUD+INSERT. 1-5 corresponding to operation. \n Enter arguments in this format 'int(1<->5)|psswrd|db'. Afterwards you will be prompted for your SQL query.\n Write here: ")
 entry_window = RootWindow()

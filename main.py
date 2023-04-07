@@ -5,7 +5,7 @@ from server_script.directing.conductor import Conductor
 
 if __name__ == "__main__":
     # Replace this host and port with a different one if you'd like. The host should be the IP address of the machine running the server code.
-    HOST, PORT = "192.168.0.245", 5007
+    HOST, PORT = "192.168.1.12", 5007
     conductor = Conductor
 
     # Create the server, binding to the host and port.

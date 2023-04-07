@@ -8,27 +8,21 @@ When run (via main), the server will run forever until it is manually stopped vi
 
 This is an experimental project designed to teach myself how to interface with MySQL with Python 3.11.
 
-# Requirements
+[Software Demo Video](https://youtu.be/mz_1ICV63PQ)
 
-To run the server, you'll need Python 3 and the mysql.connector module. You'll also need the MySQL service, with databases you can either download or create on your own. While testing this project, I used an example database called employee_db I created with some help from the Internet, along with the sakila database. There is no functionality yet in the client or server for creating a database.
+# Relational Database
 
-To run the client, all you'll need is Python 3 with the tkinter and socket modules installed.
+The database I use is MySQL. I used it because I'm the most comfortable with it.
 
-I have only tested this project over LAN, so you might run into problems if you connect from a different network.
+The database is relatively simple. Because the bulk of the code is in Python, the database only contains two tables, one with employee information and one with information about sales.
 
-# Network Communication
-
-I used client-server architecture. The server receives requests from clients, services them, and sends back data. However, this simple server can only service one request at a time. Multithreading will be added soon.
-
-This is a TCP server as UDP is not necessary for something this small and slow. I used port 5007, but any other random unused port will do.
-
-Both the client and server communicate with byte-like messages. They convert a string message to byte-like before sending data and do the reverse after receiving data. The client should always use this format -- "number|password|database" followed by your query in the text window that appears. You will easily break the program if you type something different.
+The primary key for the employeetbl is empid, which is also the foreign key for the sales table. The sales' table's primary key is idsales.
 
 # Development Environment
 
-I developed this program with Visual Studio Code and the command line on a Windows PC and a Chromebook running Linux.
+I developed this program with Visual Studio Code and the command line on a Windows PC and a Chromebook running Linux. I used MySQL Workbench a little bit.
 
-For the code itself, I used Python 3.11 and the socket, socketserver and datetime libraries. I also used mysql.connector and the tkinter library.
+For the code itself, I used Python 3.11 and the socket, socketserver and datetime libraries. I also used mysql.connector and the tkinter library. 
 
 # Useful Websites
 
@@ -36,6 +30,7 @@ For the code itself, I used Python 3.11 and the socket, socketserver and datetim
 * [Python 3 socketserver](https://docs.python.org/3/library/socketserver.html)
 * [StackOverflow: Difference between modes a, a+, w, w+, and r+ in built-in open function? by flybywire](https://stackoverflow.com/questions/1466000/difference-between-modes-a-a-w-w-and-r-in-built-in-open-function)
 * [Delete Lines from a File in Python](https://pynative.com/python-delete-lines-from-file/)
+* [MySQL Python Developer Guide](https://dev.mysql.com/doc/connector-python/en/)
 
 # Future Work
 
